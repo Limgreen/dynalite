@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynalite 问答 · 嵌入测试</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f5f7;color:#242629;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif}
+    main{max-width:1200px;margin:auto;padding:24px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    h1{font-size:24px;margin:0 0 8px}p{font-size:14px;line-height:1.7;margin:0;color:#5c636c}
+    nav{display:flex;gap:10px;flex-wrap:wrap}a,button{font:inherit;font-size:14px;border:1px solid #d4d9df;border-radius:8px;padding:10px 16px;background:white;color:#242629;text-decoration:none;cursor:pointer}
+    a{background:#ffd331;border-color:#ffd331}a:focus-visible,button:focus-visible{outline:3px solid #3268c8;outline-offset:3px}
+    .window{margin-top:20px;background:white;border:1px solid #dfe3e8;border-radius:12px;overflow:hidden}
+    .language-tip{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#fff8da;border-bottom:1px solid #f0e3a9;color:#4b421c;font-size:14px;line-height:1.6}
+    .language-tip[hidden]{display:none}.language-tip button{flex-shrink:0;background:transparent;border:0;padding:4px 8px;color:#63572b}
+    iframe{display:block;width:100%;height:calc(100dvh - 220px);min-height:480px;border:0;background:white}
+    .help{padding:16px 20px;border-top:1px solid #e7e9ed}.help strong{color:#242629}
+    @media(max-width:600px){main{padding:16px}iframe{height:70dvh;min-height:400px}h1{font-size:21px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div><h1>Dynalite 官方问答</h1><p>嵌入测试页面 · 问答服务由 Dynalite 官方提供</p></div>
+      <nav aria-label="问答操作">
+        <button type="button" id="reload">重新加载</button>
+        <a href="https://www.assist.my.dynalite.com/" target="_blank" rel="noopener noreferrer">独立打开问答 ↗</a>
+      </nav>
+    </header>
+    <section class="window" aria-label="官方问答窗口">
+      <div class="language-tip" id="language-tip"><span><strong>可以直接用中文输入问题。</strong>例如：DDRC-GRMS-E 可以控制哪些设备？</span><button type="button" id="dismiss-tip" aria-label="关闭中文输入提示">✕</button></div>
+      <iframe id="assistant" title="Dynalite Assist 官方问答" src="https://www.assist.my.dynalite.com/"></iframe>
+      <div class="help"><p><strong>如何测试：</strong>窗口出现后，输入一个产品问题并检查能否收到回答。如果空白、提示拒绝连接或无法登录，请点击“独立打开问答”对比。加载事件不能证明嵌入成功，需要实际提问验证。</p><p>提问内容会发送到官方服务。本页不是 Signify 官方网站。</p></div>
+    </section>
+  </main>
+  <script>
+    document.getElementById('dismiss-tip').addEventListener('click',()=>{document.getElementById('language-tip').hidden=true;});
+    document.getElementById('reload').addEventListener('click',()=>{document.getElementById('language-tip').hidden=false;document.getElementById('assistant').src='https://www.assist.my.dynalite.com/';});
+  </script>
+</body>
+</html>

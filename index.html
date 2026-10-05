@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dynalite 控制器 · 中文资料查询</title>
+<style>
+:root{--ink:#222927;--muted:#626f69;--line:#dde4df;--green:#254b3d;--yellow:#ffd535}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#f5f6f3;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif}a{color:var(--green)}button,input,select{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #b08700;outline-offset:3px}header{background:#fff;border-bottom:1px solid var(--line)}.bar{max-width:1240px;margin:auto;padding:20px 28px;display:flex;justify-content:space-between;gap:16px;align-items:center}.brand{font-size:20px;font-weight:750}.brand small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:4px}.bar a{font-size:14px;text-decoration:none}main{max-width:1240px;margin:auto;padding:38px 28px}h1{font-size:clamp(28px,4vw,40px);margin:0 0 12px;letter-spacing:-1px}.intro{max-width:760px;line-height:1.8;color:var(--muted);margin:0}.label{font-size:12px;letter-spacing:2px;color:var(--green);font-weight:700;margin-bottom:12px}.searchbox{margin:28px 0 16px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:1fr 210px auto;gap:14px;align-items:end}label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}input,select{width:100%;height:46px;border:1px solid #cbd5ce;border-radius:8px;padding:0 12px;color:var(--ink);background:#fff}button{height:46px;border:1px solid var(--line);background:#f3f5f1;border-radius:8px;padding:0 16px;cursor:pointer}.stats{font-size:13px;color:var(--muted);margin:0 0 20px}.review{padding:12px 16px;border-left:3px solid #c29a28;background:#fff5d7;line-height:1.7;font-size:13px;margin:0 0 22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column}.category{font-size:12px;color:var(--green);font-weight:600}.pending{margin-left:12px;color:#856716}h2{font-size:25px;letter-spacing:-.5px;margin:10px 0 6px}.name{font-size:16px;font-weight:600;margin:0 0 16px}.description{font-size:14px;line-height:1.8;color:var(--muted);margin:0 0 18px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.tags span{padding:6px 9px;border-radius:5px;background:#edf3ee;font-size:12px;color:var(--green)}details{border-top:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-size:13px;font-weight:600}details p{font-size:13px;line-height:1.8;color:var(--muted);margin:12px 0 0}.downloads{margin-top:auto}.downloads h3{font-size:14px;margin:14px 0 8px}.download{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #edf0ec;text-decoration:none;font-size:14px}.download:hover{color:#936900}.download small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.download b{font-size:13px;font-weight:500;white-space:nowrap}.source{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);padding-top:18px}.empty{padding:48px;text-align:center;border:1px dashed var(--line);border-radius:14px;background:#fff}.empty[hidden]{display:none}footer{margin-top:30px;color:var(--muted);font-size:12px;line-height:1.8}.missing{font-size:12px;line-height:1.7;color:var(--muted)}@media(max-width:760px){.bar{padding:18px}main{padding:28px 18px}.grid{grid-template-columns:1fr}.searchbox{grid-template-columns:1fr}.source{flex-wrap:wrap}article{padding:22px}}
+</style>
+</head>
+<body>
+<header><div class="bar"><div class="brand">Dynalite <small>控制器 · 中文资料查询</small></div><a href="assist.html">官方问答 ↗</a></div></header>
+<main>
+<div class="label">产品与技术资料</div><h1>找产品，也找得到资料。</h1>
+<p class="intro">按型号或控制方式查找，快速了解产品用途，打开官方规格书、安装说明和认证文件。</p>
+<div class="searchbox"><div><label for="search">型号 / 用途 / 资料名称</label><input id="search" type="search" placeholder="例如：DDBC320、继电器、0-10V、安装说明" autocomplete="off"></div><div><label for="category">控制方式</label><select id="category"><option value="">全部控制器</option><option>DALI 控制</option><option>开关控制</option><option>信号调光</option></select></div><button id="reset" type="button">清除筛选</button></div>
+<p class="stats" id="count" role="status" aria-live="polite"></p>
+<p class="review" id="review">测试版：DDBC120、DDBC320D、DRC1220、DDBC516 的简称与完整型号对应关系待确认。下列四款为官网候选产品，确认后再用于客户查询。</p>
+<div class="grid" id="products"></div><div class="empty" id="empty" hidden>没有找到相关产品。可以缩短型号，或清除分类筛选后再试。</div>
+<footer>中文介绍依据官方资料整理，本页不是 Signify 官方网站。资料链接指向官方服务器；PDF 可能先打开预览，可在预览窗口保存。选型需核对实际产品版本、驱动器兼容性和负载条件。检索范围为本页产品与资料名称，不包含 PDF 正文。资料核对日期：2026-10-05。</footer>
+</main>
+<script src="products-data.js"></script>
+<script>
+const products=window.PRODUCTS, search=document.getElementById('search'), category=document.getElementById('category');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const normalize=s=>s.toLowerCase().replace(/[\s–—−-]/g,'');
+const link=d=>`<a class="download" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer"><span>${esc(d.label)}<small>PDF · ${esc(d.language)}${d.version?' · '+esc(d.version):''}</small></span><b>打开 / 下载 ↗</b></a>`;
+function render(){
+ const terms=search.value.trim().split(/\s+/).filter(Boolean).map(normalize);
+ const matches=products.filter(p=>(!category.value||p.category===category.value)&&terms.every(t=>normalize([p.model,p.alias,p.category,p.name,p.description,p.note,...p.tags,...p.downloads.map(d=>d.label)].join(' ')).includes(t)));
+ document.getElementById('count').textContent=`找到 ${matches.length} 款产品 · 当前收录 ${products.length} 款`;
+ document.getElementById('empty').hidden=matches.length>0;
+ document.getElementById('review').hidden=!products.some(p=>p.pending);
+ document.getElementById('products').innerHTML=matches.map(p=>`<article><div class="category">${esc(p.category)}${p.pending?'<span class="pending">型号对应待确认</span>':''}</div><h2>${esc(p.model)}</h2><p class="name">${esc(p.name)}</p><p class="description">${esc(p.description)}</p><div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><details><summary>选型与版本说明</summary><p>${esc(p.note)}</p></details><div class="downloads"><h3>常用资料</h3>${p.downloads.filter(d=>d.type==='常用资料').map(link).join('')}<details><summary>认证文件（${p.downloads.filter(d=>d.type==='认证文件').length}）</summary>${p.downloads.filter(d=>d.type==='认证文件').map(link).join('')}${p.unavailable?`<p class="missing">${esc(p.unavailable)}</p>`:''}</details></div><div class="source"><a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">官方产品页面 ↗</a><span>核对于 ${esc(p.checked)}</span></div></article>`).join('');
+}
+search.addEventListener('input',render);category.addEventListener('change',render);document.getElementById('reset').addEventListener('click',()=>{search.value='';category.value='';render();search.focus();});render();
+</script>
+</body></html>
